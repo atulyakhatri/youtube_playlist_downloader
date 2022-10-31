@@ -1,6 +1,9 @@
 from pytube import Playlist
+import sys
 
-playlist = Playlist('https://youtube.com/playlist?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR')
+print(sys.argv[1])
+playlist = Playlist(sys.argv[1])
+
 print('Number of videos in playlist: %s' % len(playlist.video_urls))
 for video in playlist.videos:
     video.streams.filter(progressive=True,
